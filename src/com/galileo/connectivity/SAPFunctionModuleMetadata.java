@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-public class SAPFunctionModule
+public class SAPFunctionModuleMetadata
 {
 	Properties connectionProperties;
 	public void setConnectionProperties(Properties connectionProperties)
@@ -19,7 +19,7 @@ public class SAPFunctionModule
 	private List<SAPParameter> changingParameters;
 	private List<SAPException> namedExceptions;
 	
-	public SAPFunctionModule(String createFunctionName){
+	public SAPFunctionModuleMetadata(String createFunctionName){
 		functionName = createFunctionName;
 	}
 

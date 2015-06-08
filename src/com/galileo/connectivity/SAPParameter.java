@@ -12,8 +12,10 @@ public class SAPParameter
 	private Integer length;
 	private String documentation;
 	private List<SAPParameter> tableParameters;
-	
-	public SAPParameter(SAPParameterTypes createType, String createName, String createTypeName, Integer createLength, String createReferenceType){
+
+	public SAPParameter(SAPParameterTypes createType, String createName, String createTypeName, Integer createLength,
+			String createReferenceType)
+	{
 		name = createName;
 		typeName = createTypeName;
 		type = createType;
@@ -21,42 +23,40 @@ public class SAPParameter
 		length = createLength;
 		tableParameters = null;
 	}
-	
+
 	public void setReferenceType(String referenceType)
 	{
 		this.referenceType = referenceType;
 	}
 
-	public SAPParameter(SAPParameterTypes createType, String createName, String createReferenceType){
+	public SAPParameter(SAPParameterTypes createType, String createName, String createReferenceType)
+	{
 		name = createName;
 		referenceType = createReferenceType;
 		type = createType;
 		tableParameters = new ArrayList<SAPParameter>();
 	}
-	
+
 	public List<SAPParameter> getTableParameters()
 	{
 		return tableParameters;
-	}
-
-	public void setTableParameters(List<SAPParameter> tableParameters)
-	{
-		this.tableParameters = tableParameters;
 	}
 
 	public String getName()
 	{
 		return name;
 	}
+
 	public void setName(String name)
 	{
 		this.name = name;
 	}
+
 	public SAPParameterTypes getType()
 	{
 		return type;
 	}
-	
+
 	public String getTypeName()
 	{
 		return typeName;
@@ -66,11 +66,12 @@ public class SAPParameter
 	{
 		return length;
 	}
+
 	public void setLength(Integer length)
 	{
 		this.length = length;
 	}
-	
+
 	public String getReferenceType()
 	{
 		return referenceType;
@@ -85,5 +86,4 @@ public class SAPParameter
 	{
 		this.documentation = documentation;
 	}
-	
 }

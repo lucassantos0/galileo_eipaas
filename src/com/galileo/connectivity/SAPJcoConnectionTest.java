@@ -37,10 +37,10 @@ public class SAPJcoConnectionTest
 		Gson gson = gBuilder.setPrettyPrinting().create();
 		//String serialized = gson.toJson(destination);
 		//JCoDestination destination2 = new Gson().fromJson(serialized, JCoDestination.class);
-		System.out.println(gson.toJson(jcoProperties));
+//		System.out.println(gson.toJson(jcoProperties));
 		
 		JCoFunction function = destination.getRepository().getFunction(functionModuleName);
-		SAPFunctionModule functionModule = new SAPFunctionModule(functionModuleName);
+		SAPFunctionModuleMetadata functionModule = new SAPFunctionModuleMetadata(functionModuleName);
 		JCoParameterList functionTableParams, functionImportingParams, functionChangingParams, functionExportingParams;
 		JCoFieldIterator iterator;
 
@@ -101,9 +101,12 @@ public class SAPJcoConnectionTest
 				functionModule.getNamedExceptions().add(new SAPException(namedExceptions[i].getKey(), namedExceptions[i].getMessage()));
 			}
 		}
+		String serialized = gson.toJson(functionModule);
+		System.out.println(serialized);
 		
-//		System.out.println(gson.toJson(functionModule));
-
+//		SAPFunctionModuleMetadata destination2 = new Gson().fromJson(serialized, SAPFunctionModuleMetadata.class);
+//		System.out.println(gson.toJson(jcoProperties));
+//		System.out.println(destination2.getFunctionName());
 	}
 
 	public static void main(String args[])
@@ -116,7 +119,7 @@ public class SAPJcoConnectionTest
 			provider.addDestination("FUSION_ERP_CONNECTION", jcoProperties);
 			com.sap.conn.jco.ext.Environment.registerDestinationDataProvider(provider);
 			destination = JCoDestinationManager.getDestination("FUSION_ERP_CONNECTION");
-			abapHandlerClass.getFunctionModuleMetadata("ZFTM_SEND_CTE_XML", destination);
+			abapHandlerClass.getFunctionModuleMetadata("BAPI_PO_CREATE", destination);
 
 		}
 		catch (JCoException e)
