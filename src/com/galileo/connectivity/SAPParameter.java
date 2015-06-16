@@ -3,7 +3,9 @@ package com.galileo.connectivity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SAPParameter
+import com.galileo.engine.PersistGlobal;
+
+public class SAPParameter extends PersistGlobal
 {
 	private String name;
 	private SAPParameterTypes type;
@@ -86,4 +88,5 @@ public class SAPParameter
 	{
 		this.documentation = documentation;
 	}
+
 }
